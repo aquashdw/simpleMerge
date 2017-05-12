@@ -5,9 +5,9 @@ CAU ICT Software Engineering Team Project
 ## Team Members
 Member	| Name	
 --------|--------
-	| 권순우
-	| 김남웅
-	| 박지호
-	| 유동제
-	| 이수호
-	| 정연지
+1	| 권순우
+2	| 김남웅
+3	| 박지호
+4	| 유동제
+5	| 이수호
+6	| 정연지
