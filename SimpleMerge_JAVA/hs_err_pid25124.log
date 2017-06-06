@@ -1,0 +1,548 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 262144 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2640), pid=25124, tid=0x00007faae596a700
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_131-b11) (build 1.8.0_131-b11)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.131-b11 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007faadc00a000):  JavaThread "main" [_thread_in_vm, id=25136, stack(0x00007faae586a000,0x00007faae596b000)]
+
+Stack: [0x00007faae586a000,0x00007faae596b000],  sp=0x00007faae5966050,  free space=1008k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xac826a]  VMError::report_and_die()+0x2ba
+V  [libjvm.so+0x4fd4cb]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x924f53]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x103
+V  [libjvm.so+0x9254a9]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x91f6ca]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0xac3fc9]  VirtualSpace::expand_by(unsigned long, bool)+0x199
+V  [libjvm.so+0x8a34e6]  VirtualSpaceList::expand_node_by(VirtualSpaceNode*, unsigned long, unsigned long)+0x76
+V  [libjvm.so+0x8a6300]  VirtualSpaceList::expand_by(unsigned long, unsigned long)+0xf0
+V  [libjvm.so+0x8a6493]  VirtualSpaceList::get_new_chunk(unsigned long, unsigned long, unsigned long)+0xb3
+V  [libjvm.so+0x8a7fe2]  SpaceManager::grow_and_allocate(unsigned long)+0x2d2
+V  [libjvm.so+0x8a81eb]  SpaceManager::allocate_work(unsigned long)+0x14b
+V  [libjvm.so+0x8a827c]  SpaceManager::allocate(unsigned long)+0x7c
+V  [libjvm.so+0x8a84ce]  Metaspace::allocate(ClassLoaderData*, unsigned long, bool, MetaspaceObj::Type, Thread*)+0x17e
+V  [libjvm.so+0x462513]  Array<unsigned short>* MetadataFactory::new_array<unsigned short>(ClassLoaderData*, int, Thread*)+0x33
+V  [libjvm.so+0x457702]  ClassFileParser::parse_fields(Symbol*, bool, FieldAllocationCount*, unsigned short*, Thread*)+0x932
+V  [libjvm.so+0x4617b6]  ClassFileParser::parseClassFile(Symbol*, ClassLoaderData*, Handle, KlassHandle, GrowableArray<Handle>*, TempNewSymbol&, bool, Thread*)+0xc96
+V  [libjvm.so+0x4667ab]  ClassLoader::load_classfile(Symbol*, Thread*)+0x3fb
+V  [libjvm.so+0xa3da20]  SystemDictionary::load_instance_class(Symbol*, Handle, Thread*)+0x380
+V  [libjvm.so+0xa3c9dc]  SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, Thread*)+0x78c
+V  [libjvm.so+0xa3d158]  SystemDictionary::resolve_super_or_fail(Symbol*, Symbol*, Handle, Handle, bool, Thread*)+0x2d8
+V  [libjvm.so+0x4518d8]  ClassFileParser::parse_interfaces(int, Handle, Symbol*, bool*, Thread*)+0x1f8
+V  [libjvm.so+0x46173b]  ClassFileParser::parseClassFile(Symbol*, ClassLoaderData*, Handle, KlassHandle, GrowableArray<Handle>*, TempNewSymbol&, bool, Thread*)+0xc1b
+V  [libjvm.so+0x4667ab]  ClassLoader::load_classfile(Symbol*, Thread*)+0x3fb
+V  [libjvm.so+0xa3da20]  SystemDictionary::load_instance_class(Symbol*, Handle, Thread*)+0x380
+V  [libjvm.so+0xa3c9dc]  SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, Thread*)+0x78c
+V  [libjvm.so+0xa3d158]  SystemDictionary::resolve_super_or_fail(Symbol*, Symbol*, Handle, Handle, bool, Thread*)+0x2d8
+V  [libjvm.so+0x462230]  ClassFileParser::parseClassFile(Symbol*, ClassLoaderData*, Handle, KlassHandle, GrowableArray<Handle>*, TempNewSymbol&, bool, Thread*)+0x1710
+V  [libjvm.so+0x4667ab]  ClassLoader::load_classfile(Symbol*, Thread*)+0x3fb
+V  [libjvm.so+0xa3da20]  SystemDictionary::load_instance_class(Symbol*, Handle, Thread*)+0x380
+V  [libjvm.so+0xa3c9dc]  SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, Thread*)+0x78c
+V  [libjvm.so+0xa3deb3]  SystemDictionary::resolve_or_fail(Symbol*, Handle, Handle, bool, Thread*)+0x33
+V  [libjvm.so+0x4f4368]  ConstantPool::klass_at_impl(constantPoolHandle, int, Thread*)+0x158
+V  [libjvm.so+0x686471]  InterpreterRuntime::_new(JavaThread*, ConstantPool*, int)+0x71
+j  sun.reflect.NativeConstructorAccessorImpl.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+30
+j  sun.reflect.DelegatingConstructorAccessorImpl.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+5
+j  java.lang.reflect.Constructor.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+79
+j  java.awt.AWTKeyStroke.getCachedStroke(CIIZ)Ljava/awt/AWTKeyStroke;+73
+j  java.awt.AWTKeyStroke.getAWTKeyStroke(Ljava/lang/String;)Ljava/awt/AWTKeyStroke;+361
+j  javax.swing.KeyStroke.getKeyStroke(Ljava/lang/String;)Ljavax/swing/KeyStroke;+24
+j  javax.swing.LookAndFeel.loadKeyBindings(Ljavax/swing/InputMap;[Ljava/lang/Object;)V+43
+j  javax.swing.LookAndFeel.makeInputMap([Ljava/lang/Object;)Ljavax/swing/InputMap;+10
+j  javax.swing.UIDefaults$LazyInputMap.createValue(Ljavax/swing/UIDefaults;)Ljava/lang/Object;+11
+j  javax.swing.UIDefaults.getFromHashtable(Ljava/lang/Object;)Ljava/lang/Object;+126
+j  javax.swing.UIDefaults.get(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;+2
+j  javax.swing.MultiUIDefaults.get(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;+50
+j  javax.swing.UIManager.get(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;+5
+j  sun.swing.DefaultLookup.get(Ljavax/swing/JComponent;Ljavax/swing/plaf/ComponentUI;Ljava/lang/String;)Ljava/lang/Object;+33
+j  javax.swing.plaf.basic.BasicTextUI.getInputMap()Ljavax/swing/InputMap;+35
+j  javax.swing.plaf.basic.BasicTextUI.installKeyboardActions()V+12
+j  javax.swing.plaf.basic.BasicTextUI.installUI(Ljavax/swing/JComponent;)V+110
+j  javax.swing.JComponent.setUI(Ljavax/swing/plaf/ComponentUI;)V+39
+j  javax.swing.text.JTextComponent.setUI(Ljavax/swing/plaf/TextUI;)V+2
+j  javax.swing.text.JTextComponent.updateUI()V+8
+j  javax.swing.text.JTextComponent.<init>()V+62
+j  javax.swing.JTextArea.<init>(Ljavax/swing/text/Document;Ljava/lang/String;II)V+1
+j  javax.swing.JTextArea.<init>()V+5
+j  MyCenterPanel.<init>()V+9
+j  MyTextPanel.<init>()V+20
+j  Main.main([Ljava/lang/String;)V+4
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x691d16]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x1056
+V  [libjvm.so+0x6d3132]  jni_invoke_static(JNIEnv_*, JavaValue*, _jobject*, JNICallType, _jmethodID*, JNI_ArgumentPusher*, Thread*)+0x362
+V  [libjvm.so+0x6ef99a]  jni_CallStaticVoidMethod+0x17a
+C  [libjli.so+0x7bdf]  JavaMain+0x81f
+C  [libpthread.so.0+0x76ba]  start_thread+0xca
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sun.reflect.NativeConstructorAccessorImpl.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+30
+j  sun.reflect.DelegatingConstructorAccessorImpl.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+5
+j  java.lang.reflect.Constructor.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+79
+j  java.awt.AWTKeyStroke.getCachedStroke(CIIZ)Ljava/awt/AWTKeyStroke;+73
+j  java.awt.AWTKeyStroke.getAWTKeyStroke(Ljava/lang/String;)Ljava/awt/AWTKeyStroke;+361
+j  javax.swing.KeyStroke.getKeyStroke(Ljava/lang/String;)Ljavax/swing/KeyStroke;+24
+j  javax.swing.LookAndFeel.loadKeyBindings(Ljavax/swing/InputMap;[Ljava/lang/Object;)V+43
+j  javax.swing.LookAndFeel.makeInputMap([Ljava/lang/Object;)Ljavax/swing/InputMap;+10
+j  javax.swing.UIDefaults$LazyInputMap.createValue(Ljavax/swing/UIDefaults;)Ljava/lang/Object;+11
+j  javax.swing.UIDefaults.getFromHashtable(Ljava/lang/Object;)Ljava/lang/Object;+126
+j  javax.swing.UIDefaults.get(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;+2
+j  javax.swing.MultiUIDefaults.get(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;+50
+j  javax.swing.UIManager.get(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;+5
+j  sun.swing.DefaultLookup.get(Ljavax/swing/JComponent;Ljavax/swing/plaf/ComponentUI;Ljava/lang/String;)Ljava/lang/Object;+33
+j  javax.swing.plaf.basic.BasicTextUI.getInputMap()Ljavax/swing/InputMap;+35
+j  javax.swing.plaf.basic.BasicTextUI.installKeyboardActions()V+12
+j  javax.swing.plaf.basic.BasicTextUI.installUI(Ljavax/swing/JComponent;)V+110
+j  javax.swing.JComponent.setUI(Ljavax/swing/plaf/ComponentUI;)V+39
+j  javax.swing.text.JTextComponent.setUI(Ljavax/swing/plaf/TextUI;)V+2
+j  javax.swing.text.JTextComponent.updateUI()V+8
+j  javax.swing.text.JTextComponent.<init>()V+62
+j  javax.swing.JTextArea.<init>(Ljavax/swing/text/Document;Ljava/lang/String;II)V+1
+j  javax.swing.JTextArea.<init>()V+5
+j  MyCenterPanel.<init>()V+9
+j  MyTextPanel.<init>()V+20
+j  Main.main([Ljava/lang/String;)V+4
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007faadc1ac000 JavaThread "AWT-XAWT" daemon [_thread_in_native, id=25167, stack(0x00007faaafeff000,0x00007faab0000000)]
+  0x00007faadc18c800 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=25164, stack(0x00007faacc444000,0x00007faacc545000)]
+  0x00007faadc0b4000 JavaThread "Service Thread" daemon [_thread_blocked, id=25152, stack(0x00007faae1109000,0x00007faae120a000)]
+  0x00007faadc0b1000 JavaThread "C1 CompilerThread1" daemon [_thread_blocked, id=25150, stack(0x00007faae120a000,0x00007faae130b000)]
+  0x00007faadc0af000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=25148, stack(0x00007faae130b000,0x00007faae140c000)]
+  0x00007faadc0ad800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=25147, stack(0x00007faae140c000,0x00007faae150d000)]
+  0x00007faadc07a800 JavaThread "Finalizer" daemon [_thread_blocked, id=25141, stack(0x00007faae17e5000,0x00007faae18e6000)]
+  0x00007faadc076000 JavaThread "Reference Handler" daemon [_thread_blocked, id=25139, stack(0x00007faae18e6000,0x00007faae19e7000)]
+=>0x00007faadc00a000 JavaThread "main" [_thread_in_vm, id=25136, stack(0x00007faae586a000,0x00007faae596b000)]
+
+Other Threads:
+  0x00007faadc06e800 VMThread [stack: 0x00007faae19e7000,0x00007faae1ae8000] [id=25138]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 4928K, used 3036K [0x00000000f0800000, 0x00000000f0d50000, 0x00000000f5aa0000)
+  eden space 4416K,  68% used [0x00000000f0800000, 0x00000000f0af73e8, 0x00000000f0c50000)
+  from space 512K,   0% used [0x00000000f0c50000, 0x00000000f0c50000, 0x00000000f0cd0000)
+  to   space 512K,   0% used [0x00000000f0cd0000, 0x00000000f0cd0000, 0x00000000f0d50000)
+ tenured generation   total 10944K, used 0K [0x00000000f5aa0000, 0x00000000f6550000, 0x0000000100000000)
+   the space 10944K,   0% used [0x00000000f5aa0000, 0x00000000f5aa0000, 0x00000000f5aa0200, 0x00000000f6550000)
+ Metaspace       used 7769K, capacity 7878K, committed 7936K, reserved 1056768K
+  class space    used 918K, capacity 991K, committed 1024K, reserved 1048576K
+
+Card table byte_map: [0x00007faae57ed000,0x00007faae586a000] byte_map_base: 0x00007faae5069000
+
+Polling page: 0x00007faae5984000
+
+CodeCache: size=245760Kb used=1683Kb max_used=1683Kb free=244076Kb
+ bounds [0x00007faacd000000, 0x00007faacd270000, 0x00007faadc000000]
+ total_blobs=694 nmethods=265 adapters=343
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 6.433 Thread 0x00007faadc0b1000 nmethod 260 0x00007faacd1a0c90 code [0x00007faacd1a0e40, 0x00007faacd1a1458]
+Event: 6.433 Thread 0x00007faadc0b1000  261       3       java.lang.String::toString (2 bytes)
+Event: 6.433 Thread 0x00007faadc0b1000 nmethod 261 0x00007faacd1a16d0 code [0x00007faacd1a1820, 0x00007faacd1a1970]
+Event: 6.451 Thread 0x00007faadc0b1000  262       3       sun.awt.AppContext::getAppContext (51 bytes)
+Event: 6.465 Thread 0x00007faadc0b1000 nmethod 262 0x00007faacd1a19d0 code [0x00007faacd1a1b80, 0x00007faacd1a21f8]
+Event: 6.467 Thread 0x00007faadc0b1000  263   !   3       sun.awt.AppContext::get (123 bytes)
+Event: 6.469 Thread 0x00007faadc0b1000 nmethod 263 0x00007faacd1a2390 code [0x00007faacd1a2540, 0x00007faacd1a2e08]
+Event: 6.485 Thread 0x00007faadc0b1000  264       3       sun.util.logging.PlatformLogger$Level::intValue (9 bytes)
+Event: 6.498 Thread 0x00007faadc0b1000 nmethod 264 0x00007faacd1a3250 code [0x00007faacd1a33c0, 0x00007faacd1a35d0]
+Event: 6.803 Thread 0x00007faadc0b1000  265       1       java.lang.Integer::intValue (5 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (1 events):
+Event: 5.701 Thread 0x00007faadc00a000 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007faacd161144 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+
+Internal exceptions (10 events):
+Event: 0.245 Thread 0x00007faadc00a000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000f0807f90) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/prims/jni.cp
+Event: 5.207 Thread 0x00007faadc00a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f087e030) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 5.207 Thread 0x00007faadc00a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f087e240) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 5.208 Thread 0x00007faadc00a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f0880d40) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 5.208 Thread 0x00007faadc00a000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f0880f50) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 5.364 Thread 0x00007faadc00a000 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000f0963898) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/prims/methodHandles.cpp, line 1146]
+Event: 5.366 Thread 0x00007faadc00a000 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000f0971090) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/prims/methodHandles.cpp, line 1146]
+Event: 5.601 Thread 0x00007faadc00a000 Exception <a 'java/io/FileNotFoundException'> (0x00000000f09f00c8) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 5.602 Thread 0x00007faadc00a000 Exception <a 'java/io/FileNotFoundException'> (0x00000000f09f0b40) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u131/8869/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 5.701 Thread 0x00007faadc00a000 Implicit null exception at 0x00007faacd160f62 to 0x00007faacd161135
+
+Events (10 events):
+Event: 6.707 loading class javax/swing/text/Keymap
+Event: 6.711 loading class javax/swing/text/Keymap done
+Event: 6.714 loading class javax/swing/text/JTextComponent$DefaultKeymap done
+Event: 6.727 loading class javax/swing/text/JTextComponent$KeymapWrapper
+Event: 6.733 loading class javax/swing/text/JTextComponent$KeymapWrapper done
+Event: 6.744 loading class javax/swing/text/JTextComponent$KeymapActionMap
+Event: 6.752 loading class javax/swing/text/JTextComponent$KeymapActionMap done
+Event: 6.806 loading class sun/reflect/MethodAccessorGenerator
+Event: 6.812 loading class sun/reflect/AccessorGenerator
+Event: 6.812 loading class sun/reflect/ClassFileConstants
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:01 922623                             /home/parallels/Downloads/eclipse-installer/jre/bin/java
+00600000-00601000 rw-p 00000000 08:01 922623                             /home/parallels/Downloads/eclipse-installer/jre/bin/java
+01e4e000-01e6f000 rw-p 00000000 00:00 0                                  [heap]
+f0800000-f0d50000 rw-p 00000000 00:00 0 
+f0d50000-f5aa0000 ---p 00000000 00:00 0 
+f5aa0000-f6550000 rw-p 00000000 00:00 0 
+f6550000-100000000 ---p 00000000 00:00 0 
+100000000-100100000 rw-p 00000000 00:00 0 
+100100000-140000000 ---p 00000000 00:00 0 
+7faaa4000000-7faaa4021000 rw-p 00000000 00:00 0 
+7faaa4021000-7faaa8000000 ---p 00000000 00:00 0 
+7faaa8000000-7faaa8021000 rw-p 00000000 00:00 0 
+7faaa8021000-7faaac000000 ---p 00000000 00:00 0 
+7faaafeff000-7faaaff02000 ---p 00000000 00:00 0 
+7faaaff02000-7faab0000000 rw-p 00000000 00:00 0 
+7faab0000000-7faab01ce000 rw-p 00000000 00:00 0 
+7faab01ce000-7faab4000000 ---p 00000000 00:00 0 
+7faab4000000-7faab4021000 rw-p 00000000 00:00 0 
+7faab4021000-7faab8000000 ---p 00000000 00:00 0 
+7faab8000000-7faab8021000 rw-p 00000000 00:00 0 
+7faab8021000-7faabc000000 ---p 00000000 00:00 0 
+7faabc000000-7faabc16b000 rw-p 00000000 00:00 0 
+7faabc16b000-7faac0000000 ---p 00000000 00:00 0 
+7faac0000000-7faac0021000 rw-p 00000000 00:00 0 
+7faac0021000-7faac4000000 ---p 00000000 00:00 0 
+7faac4000000-7faac4021000 rw-p 00000000 00:00 0 
+7faac4021000-7faac8000000 ---p 00000000 00:00 0 
+7faac8000000-7faac8021000 rw-p 00000000 00:00 0 
+7faac8021000-7faacc000000 ---p 00000000 00:00 0 
+7faacc034000-7faacc039000 r-xp 00000000 08:01 2237353                    /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7faacc039000-7faacc238000 ---p 00005000 08:01 2237353                    /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7faacc238000-7faacc239000 r--p 00004000 08:01 2237353                    /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7faacc239000-7faacc23a000 rw-p 00005000 08:01 2237353                    /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7faacc23a000-7faacc243000 r-xp 00000000 08:01 2237345                    /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7faacc243000-7faacc442000 ---p 00009000 08:01 2237345                    /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7faacc442000-7faacc443000 r--p 00008000 08:01 2237345                    /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7faacc443000-7faacc444000 rw-p 00009000 08:01 2237345                    /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7faacc444000-7faacc447000 ---p 00000000 00:00 0 
+7faacc447000-7faacc545000 rw-p 00000000 00:00 0 
+7faacc545000-7faacc55b000 r-xp 00000000 08:01 3937284                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7faacc55b000-7faacc75a000 ---p 00016000 08:01 3937284                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7faacc75a000-7faacc75b000 rw-p 00015000 08:01 3937284                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7faacc75b000-7faacc7c0000 r-xp 00000000 08:01 922919                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libfontmanager.so
+7faacc7c0000-7faacc9bf000 ---p 00065000 08:01 922919                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libfontmanager.so
+7faacc9bf000-7faacc9c4000 rw-p 00064000 08:01 922919                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libfontmanager.so
+7faacc9c4000-7faacc9d4000 rw-p 00000000 00:00 0 
+7faacc9d4000-7faacc9d9000 r-xp 00000000 08:01 2237349                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7faacc9d9000-7faaccbd8000 ---p 00005000 08:01 2237349                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7faaccbd8000-7faaccbd9000 r--p 00004000 08:01 2237349                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7faaccbd9000-7faaccbda000 rw-p 00005000 08:01 2237349                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7faaccbda000-7faaccbdc000 r-xp 00000000 08:01 2237338                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7faaccbdc000-7faaccddc000 ---p 00002000 08:01 2237338                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7faaccddc000-7faaccddd000 r--p 00002000 08:01 2237338                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7faaccddd000-7faaccdde000 rw-p 00003000 08:01 2237338                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7faaccdde000-7faaccdff000 r-xp 00000000 08:01 2238716                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7faaccdff000-7faaccffe000 ---p 00021000 08:01 2238716                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7faaccffe000-7faaccfff000 r--p 00020000 08:01 2238716                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7faaccfff000-7faacd000000 rw-p 00021000 08:01 2238716                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7faacd000000-7faacd270000 rwxp 00000000 00:00 0 
+7faacd270000-7faadc000000 ---p 00000000 00:00 0 
+7faadc000000-7faadc482000 rw-p 00000000 00:00 0 
+7faadc482000-7faae0000000 ---p 00000000 00:00 0 
+7faae005c000-7faae006b000 r-xp 00000000 08:01 2237359                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7faae006b000-7faae026a000 ---p 0000f000 08:01 2237359                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7faae026a000-7faae026b000 r--p 0000e000 08:01 2237359                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7faae026b000-7faae026c000 rw-p 0000f000 08:01 2237359                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7faae026c000-7faae0271000 r-xp 00000000 08:01 2237377                    /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7faae0271000-7faae0470000 ---p 00005000 08:01 2237377                    /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7faae0470000-7faae0471000 r--p 00004000 08:01 2237377                    /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7faae0471000-7faae0472000 rw-p 00005000 08:01 2237377                    /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7faae0472000-7faae047b000 r-xp 00000000 08:01 2237371                    /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7faae047b000-7faae067a000 ---p 00009000 08:01 2237371                    /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7faae067a000-7faae067b000 r--p 00008000 08:01 2237371                    /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7faae067b000-7faae067c000 rw-p 00009000 08:01 2237371                    /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7faae067c000-7faae07b1000 r-xp 00000000 08:01 2237334                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7faae07b1000-7faae09b1000 ---p 00135000 08:01 2237334                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7faae09b1000-7faae09b2000 r--p 00135000 08:01 2237334                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7faae09b2000-7faae09b6000 rw-p 00136000 08:01 2237334                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7faae09b6000-7faae09c7000 r-xp 00000000 08:01 2237351                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7faae09c7000-7faae0bc6000 ---p 00011000 08:01 2237351                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7faae0bc6000-7faae0bc7000 r--p 00010000 08:01 2237351                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7faae0bc7000-7faae0bc8000 rw-p 00011000 08:01 2237351                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7faae0bde000-7faae0c32000 r-xp 00000000 08:01 922945                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libawt_xawt.so
+7faae0c32000-7faae0e32000 ---p 00054000 08:01 922945                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libawt_xawt.so
+7faae0e32000-7faae0e36000 rw-p 00054000 08:01 922945                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libawt_xawt.so
+7faae0e36000-7faae0e37000 rw-p 00000000 00:00 0 
+7faae0e37000-7faae0ed9000 r-xp 00000000 08:01 922931                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libawt.so
+7faae0ed9000-7faae10d9000 ---p 000a2000 08:01 922931                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libawt.so
+7faae10d9000-7faae10e5000 rw-p 000a2000 08:01 922931                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libawt.so
+7faae10e5000-7faae1109000 rw-p 00000000 00:00 0 
+7faae1109000-7faae110c000 ---p 00000000 00:00 0 
+7faae110c000-7faae120a000 rw-p 00000000 00:00 0 
+7faae120a000-7faae120d000 ---p 00000000 00:00 0 
+7faae120d000-7faae130b000 rw-p 00000000 00:00 0 
+7faae130b000-7faae130e000 ---p 00000000 00:00 0 
+7faae130e000-7faae140c000 rw-p 00000000 00:00 0 
+7faae140c000-7faae140f000 ---p 00000000 00:00 0 
+7faae140f000-7faae150d000 rw-p 00000000 00:00 0 
+7faae150d000-7faae17e5000 r--p 00000000 08:01 2233084                    /usr/lib/locale/locale-archive
+7faae17e5000-7faae17e8000 ---p 00000000 00:00 0 
+7faae17e8000-7faae18e6000 rw-p 00000000 00:00 0 
+7faae18e6000-7faae18e9000 ---p 00000000 00:00 0 
+7faae18e9000-7faae19e7000 rw-p 00000000 00:00 0 
+7faae19e7000-7faae19e8000 ---p 00000000 00:00 0 
+7faae19e8000-7faae1b37000 rw-p 00000000 00:00 0 
+7faae1b37000-7faae1d10000 r--s 03d40000 08:01 922729                     /home/parallels/Downloads/eclipse-installer/jre/lib/rt.jar
+7faae1d10000-7faae24c9000 rw-p 00000000 00:00 0 
+7faae2509000-7faae2609000 ---p 00000000 00:00 0 
+7faae2609000-7faae2613000 rw-p 00000000 00:00 0 
+7faae2613000-7faae29c9000 ---p 00000000 00:00 0 
+7faae29c9000-7faae29e3000 r-xp 00000000 08:01 922934                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libzip.so
+7faae29e3000-7faae2be3000 ---p 0001a000 08:01 922934                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libzip.so
+7faae2be3000-7faae2be4000 rw-p 0001a000 08:01 922934                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libzip.so
+7faae2be4000-7faae2bef000 r-xp 00000000 08:01 3939894                    /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7faae2bef000-7faae2dee000 ---p 0000b000 08:01 3939894                    /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7faae2dee000-7faae2def000 r--p 0000a000 08:01 3939894                    /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7faae2def000-7faae2df0000 rw-p 0000b000 08:01 3939894                    /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7faae2df0000-7faae2df6000 rw-p 00000000 00:00 0 
+7faae2df6000-7faae2e01000 r-xp 00000000 08:01 3939887                    /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7faae2e01000-7faae3000000 ---p 0000b000 08:01 3939887                    /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7faae3000000-7faae3001000 r--p 0000a000 08:01 3939887                    /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7faae3001000-7faae3002000 rw-p 0000b000 08:01 3939887                    /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7faae3002000-7faae3018000 r-xp 00000000 08:01 3939889                    /lib/x86_64-linux-gnu/libnsl-2.23.so
+7faae3018000-7faae3217000 ---p 00016000 08:01 3939889                    /lib/x86_64-linux-gnu/libnsl-2.23.so
+7faae3217000-7faae3218000 r--p 00015000 08:01 3939889                    /lib/x86_64-linux-gnu/libnsl-2.23.so
+7faae3218000-7faae3219000 rw-p 00016000 08:01 3939889                    /lib/x86_64-linux-gnu/libnsl-2.23.so
+7faae3219000-7faae321b000 rw-p 00000000 00:00 0 
+7faae321b000-7faae3223000 r-xp 00000000 08:01 3939896                    /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7faae3223000-7faae3422000 ---p 00008000 08:01 3939896                    /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7faae3422000-7faae3423000 r--p 00007000 08:01 3939896                    /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7faae3423000-7faae3424000 rw-p 00008000 08:01 3939896                    /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7faae3424000-7faae344f000 r-xp 00000000 08:01 922928                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libjava.so
+7faae344f000-7faae364e000 ---p 0002b000 08:01 922928                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libjava.so
+7faae364e000-7faae3650000 rw-p 0002a000 08:01 922928                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libjava.so
+7faae3650000-7faae365d000 r-xp 00000000 08:01 922933                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libverify.so
+7faae365d000-7faae385c000 ---p 0000d000 08:01 922933                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libverify.so
+7faae385c000-7faae385e000 rw-p 0000c000 08:01 922933                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/libverify.so
+7faae385e000-7faae3865000 r-xp 00000000 08:01 3939897                    /lib/x86_64-linux-gnu/librt-2.23.so
+7faae3865000-7faae3a64000 ---p 00007000 08:01 3939897                    /lib/x86_64-linux-gnu/librt-2.23.so
+7faae3a64000-7faae3a65000 r--p 00006000 08:01 3939897                    /lib/x86_64-linux-gnu/librt-2.23.so
+7faae3a65000-7faae3a66000 rw-p 00007000 08:01 3939897                    /lib/x86_64-linux-gnu/librt-2.23.so
+7faae3a66000-7faae3b6e000 r-xp 00000000 08:01 3939888                    /lib/x86_64-linux-gnu/libm-2.23.so
+7faae3b6e000-7faae3d6d000 ---p 00108000 08:01 3939888                    /lib/x86_64-linux-gnu/libm-2.23.so
+7faae3d6d000-7faae3d6e000 r--p 00107000 08:01 3939888                    /lib/x86_64-linux-gnu/libm-2.23.so
+7faae3d6e000-7faae3d6f000 rw-p 00108000 08:01 3939888                    /lib/x86_64-linux-gnu/libm-2.23.so
+7faae3d6f000-7faae4a3e000 r-xp 00000000 08:01 922911                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/server/libjvm.so
+7faae4a3e000-7faae4c3e000 ---p 00ccf000 08:01 922911                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/server/libjvm.so
+7faae4c3e000-7faae4d17000 rw-p 00ccf000 08:01 922911                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/server/libjvm.so
+7faae4d17000-7faae4d62000 rw-p 00000000 00:00 0 
+7faae4d62000-7faae4f21000 r-xp 00000000 08:01 3939890                    /lib/x86_64-linux-gnu/libc-2.23.so
+7faae4f21000-7faae5121000 ---p 001bf000 08:01 3939890                    /lib/x86_64-linux-gnu/libc-2.23.so
+7faae5121000-7faae5125000 r--p 001bf000 08:01 3939890                    /lib/x86_64-linux-gnu/libc-2.23.so
+7faae5125000-7faae5127000 rw-p 001c3000 08:01 3939890                    /lib/x86_64-linux-gnu/libc-2.23.so
+7faae5127000-7faae512b000 rw-p 00000000 00:00 0 
+7faae512b000-7faae512e000 r-xp 00000000 08:01 3939886                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7faae512e000-7faae532d000 ---p 00003000 08:01 3939886                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7faae532d000-7faae532e000 r--p 00002000 08:01 3939886                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7faae532e000-7faae532f000 rw-p 00003000 08:01 3939886                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7faae532f000-7faae5344000 r-xp 00000000 08:01 922906                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/jli/libjli.so
+7faae5344000-7faae5544000 ---p 00015000 08:01 922906                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/jli/libjli.so
+7faae5544000-7faae5545000 rw-p 00015000 08:01 922906                     /home/parallels/Downloads/eclipse-installer/jre/lib/amd64/jli/libjli.so
+7faae5545000-7faae555d000 r-xp 00000000 08:01 3939901                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7faae555d000-7faae575c000 ---p 00018000 08:01 3939901                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7faae575c000-7faae575d000 r--p 00017000 08:01 3939901                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7faae575d000-7faae575e000 rw-p 00018000 08:01 3939901                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7faae575e000-7faae5762000 rw-p 00000000 00:00 0 
+7faae5762000-7faae5788000 r-xp 00000000 08:01 3939891                    /lib/x86_64-linux-gnu/ld-2.23.so
+7faae579a000-7faae57a0000 rw-p 00000000 00:00 0 
+7faae57a0000-7faae57ed000 ---p 00000000 00:00 0 
+7faae57ed000-7faae57f0000 rw-p 00000000 00:00 0 
+7faae57f0000-7faae5816000 ---p 00000000 00:00 0 
+7faae5816000-7faae581c000 rw-p 00000000 00:00 0 
+7faae581c000-7faae5869000 ---p 00000000 00:00 0 
+7faae5869000-7faae586a000 rw-p 00000000 00:00 0 
+7faae586a000-7faae586d000 ---p 00000000 00:00 0 
+7faae586d000-7faae596f000 rw-p 00000000 00:00 0 
+7faae597b000-7faae5983000 rw-s 00000000 08:01 924073                     /tmp/hsperfdata_parallels/25124
+7faae5983000-7faae5984000 rw-p 00000000 00:00 0 
+7faae5984000-7faae5985000 r--p 00000000 00:00 0 
+7faae5985000-7faae5987000 rw-p 00000000 00:00 0 
+7faae5987000-7faae5988000 r--p 00025000 08:01 3939891                    /lib/x86_64-linux-gnu/ld-2.23.so
+7faae5988000-7faae5989000 rw-p 00026000 08:01 3939891                    /lib/x86_64-linux-gnu/ld-2.23.so
+7faae5989000-7faae598a000 rw-p 00000000 00:00 0 
+7ffdf4693000-7ffdf46b4000 rw-p 00000000 00:00 0                          [stack]
+7ffdf479b000-7ffdf479d000 r--p 00000000 00:00 0                          [vvar]
+7ffdf479d000-7ffdf479f000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: Main
+java_class_path (initial): /home/parallels/workspace/SimpleMerge/bin
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/home/parallels/bin:/home/parallels/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xac8af0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xac8af0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x921dd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x921dd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x921dd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x921dd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x923610], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x924a10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x924a10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x924a10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x924a10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
+
+uname:Linux 4.4.0-78-generic #99-Ubuntu SMP Thu Apr 27 15:29:09 UTC 2017 x86_64
+libc:glibc 2.23 NPTL 2.23 
+rlimit: STACK 8192k, CORE 0k, NPROC 3795, NOFILE 65536, AS infinity
+load average:3.29 1.04 0.45
+
+/proc/meminfo:
+MemTotal:        1011992 kB
+MemFree:           49300 kB
+MemAvailable:          0 kB
+Buffers:             168 kB
+Cached:             4724 kB
+SwapCached:           12 kB
+Active:           425524 kB
+Inactive:         425848 kB
+Active(anon):     423592 kB
+Inactive(anon):   423884 kB
+Active(file):       1932 kB
+Inactive(file):     1964 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:       1046524 kB
+SwapFree:              0 kB
+Dirty:                 8 kB
+Writeback:             8 kB
+AnonPages:        846468 kB
+Mapped:             3552 kB
+Shmem:               776 kB
+Slab:              49304 kB
+SReclaimable:      20020 kB
+SUnreclaim:        29284 kB
+KernelStack:       10736 kB
+PageTables:        34384 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     1552520 kB
+Committed_AS:    5109412 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    157696 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       87984 kB
+DirectMap2M:      960512 kB
+
+
+CPU:total 2 (initial active 2) (2 cores per cpu, 1 threads per core) family 6 model 70 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, tsc, tscinvbit, bmi1, bmi2
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 70
+model name	: Intel(R) Core(TM) i7-4870HQ CPU @ 2.50GHz
+stepping	: 1
+microcode	: 0x13
+cpu MHz		: 2494.226
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc nopl xtopology nonstop_tsc eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid xsaveopt dtherm arat pln pts
+bugs		:
+bogomips	: 4988.45
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 70
+model name	: Intel(R) Core(TM) i7-4870HQ CPU @ 2.50GHz
+stepping	: 1
+microcode	: 0x13
+cpu MHz		: 2494.226
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc nopl xtopology nonstop_tsc eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid xsaveopt dtherm arat pln pts
+bugs		:
+bogomips	: 4988.45
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 1011992k(49436k free), swap 1046524k(0k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.131-b11) for linux-amd64 JRE (1.8.0_131-b11), built on Mar 15 2017 01:23:40 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Mon May 22 11:09:13 2017
+elapsed time: 6 seconds (0d 0h 0m 6s)
+
